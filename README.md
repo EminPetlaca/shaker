@@ -16,10 +16,10 @@ Ať už jde o automatizaci přípravy, správu ingrediencí, nebo jednoduše jen
 
 Tento projekt vznikl díky nadšení, kreativitě a týmové práci těchto členů:
 
-- 🛠️ **Daniel Robotka**
-- 🛠️ **Emin Petlača**
-- 🔧 **Filip Šákr**
-- 🔧 **Daniel Borko**
+- 🛠️ [**Daniel Robotka**](https://github.com/MamRadzelvyy)
+- 🛠️ [**Emin Petlača**](https://github.com/EminPetlaca)
+- 🔧 [**Filip Šákr**](https://github.com/Shaker32)
+- 🔧 [**Daniel Borko**](https://github.com/Swayy123456789)
 
 ## 🚀 Použité technologie
 
@@ -36,13 +36,13 @@ Projekt **Šejky a jeho Milkšejky** byl vytvořen moderní technologií a desig
 
 #### 🔍 Detailně:
 
-- **Shadcn/ui**  
+- [**Shadcn/ui**](https://ui.shadcn.com/)
   Knihovna pro tvorbu moderního, modulárního a přizpůsobitelného UI ve frameworku React. Komponenty jsou navržené tak, aby se daly snadno stylovat pomocí Tailwind CSS a zároveň byly přístupné a responzivní.
 
-- **Tailwind CSS**  
+- [**Tailwind CSS**](https://tailwindcss.com/)
   CSS framework, který místo psaní vlastních tříd používá utility třídy přímo v JSX. To umožňuje rychlý vývoj bez složitého nastavování stylů.
 
-- **Lucide React**  
+- [**Lucide React**](https://lucide.dev/) 
   Ikony, které jsou vektorové, flexibilní a snadno integrovatelné do Reactu. Hodí se skvěle do moderního UI – lze měnit velikost, barvy a další vlastnosti.
 
 ---
@@ -54,10 +54,10 @@ Projekt **Šejky a jeho Milkšejky** byl vytvořen moderní technologií a desig
 
 #### 📌 Detailně:
 
-- **Express**  
+- [**Express**](https://expressjs.com/)  
   Flexibilní a rychlý framework pro Node.js. Umožňuje jednoduché nastavení serveru, směrování (routing) a middleware. Ideální pro budování API ve full-stack aplikacích.
 
-- **MongoDB**  
+- [**MongoDB**](https://www.mongodb.com/) 
   Flexibilní databáze vhodná pro rychlý vývoj a snadné škálování. Ukládá data jako dokumenty, což je ideální pro moderní aplikace s dynamickými strukturami dat.
 
 ---
