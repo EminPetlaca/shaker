@@ -1,3 +1,4 @@
+require('dotenv').config();
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -5,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require("cors");
 const mongoose = require("mongoose");
-const DATABASE_KEY = require("./mongodb.js")
+const DATABASE_KEY = process.env.DATABASE_KEY;
 
 
 mongoose
