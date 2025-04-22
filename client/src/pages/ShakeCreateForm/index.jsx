@@ -1,7 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { createShake } from "../../models/Shake"; // Make sure this points to the correct file
-
+import { createShake } from "../../models/Shake";
 import React from "react";
 
 export default function ShakeCreateForm() {
@@ -14,9 +13,8 @@ export default function ShakeCreateForm() {
     Milkshake: ["Chocolate", "Vanilla", "Strawberry Syrup", "Caramel"]
   };
 
-  const handleTypeChange = (e) => {
-    const selectedType = e.target.value;
-    setFormData({ type: selectedType, ingredients: [] }); // reset ingredients on type change
+  const handleTypeChange = (type) => {
+    setFormData({ type, ingredients: [] });
   };
 
   const handleIngredientChange = (e) => {
@@ -47,41 +45,80 @@ export default function ShakeCreateForm() {
   };
 
   return (
-    <>
-      <h1>Create Shake</h1>
-      <form onSubmit={handlePost}>
-        <label>Type:</label>
-        <select name="type" value={formData.type} onChange={handleTypeChange} required>
-          <option value="">Select type</option>
-          <option value="Smoothie">Smoothie</option>
-          <option value="Milkshake">Milkshake</option>
-        </select>
+    <div className="min-h-screen w-full bg-gradient-to-br from-[#ec5f74] to-[#fbc1cc] flex flex-col items-center justify-center px-4 py-10 text-white font-sans">
+      <div className="bg-white/40 backdrop-blur-sm p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h1 className="text-3xl font-extrabold text-center mb-6 text-white drop-shadow">Vytvoř si svůj shake</h1>
 
-        {formData.type && (
-          <>
-            <label>Ingredients:</label>
-            {ingredientOptions[formData.type].map((ingredient) => (
-              <div key={ingredient}>
-                <input
-                  type="checkbox"
-                  name="ingredients"
-                  value={ingredient}
-                  checked={formData.ingredients.includes(ingredient)}
-                  onChange={handleIngredientChange}
-                />
-                <label>{ingredient}</label>
-              </div>
-            ))}
-          </>
+        {!formData.type && (
+          <div className="grid grid-cols-2 gap-4 mb-6">
+            <div
+              className="cursor-pointer rounded-lg p-4 text-center transition hover:scale-105 bg-white/30 backdrop-blur-md shadow"
+              onClick={() => handleTypeChange("Milkshake")}
+            >
+              <img src="produkty/Shake.png" alt="Milkshake" className="w-full h-32 object-contain mb-2" />
+              <span className="font-semibold">Milkshake</span>
+            </div>
+            <div
+              className="cursor-pointer rounded-lg p-4 text-center transition hover:scale-105 bg-white/30 backdrop-blur-md shadow"
+              onClick={() => handleTypeChange("Smoothie")}
+            >
+              <img src="produkty/Smoothie.png" alt="Smoothie" className="w-full h-32 object-contain mb-2" />
+              <span className="font-semibold">Smoothie</span>
+            </div>
+          </div>
         )}
 
-        <button type="submit">Add Shake</button>
-      </form>
+        {formData.type && (
+          <form onSubmit={handlePost} className="space-y-4">
+            <div className="grid grid-cols-2 gap-4 mb-6">
+              {ingredientOptions[formData.type].map((ingredient) => (
+                <label
+                  key={ingredient}
+                  className="flex flex-col items-center justify-center text-center p-4 rounded-lg bg-white/30 backdrop-blur-md shadow hover:scale-105 transition cursor-pointer"
+                >
+                 <img
+  src={`/produkty/${ingredient.toLowerCase().replace(/ /g, '-')}.png`}
+  alt={ingredient}
+  className="h-20 object-contain mb-2"
+/>
+                  <div className="flex items-center space-x-2">
+                    <input
+                      type="checkbox"
+                      name="ingredients"
+                      value={ingredient}
+                      checked={formData.ingredients.includes(ingredient)}
+                      onChange={handleIngredientChange}
+                      className="accent-pink-600"
+                    />
+                    <span>{ingredient}</span>
+                  </div>
+                </label>
+              ))}
+            </div>
 
-      <p>{info}</p>
-      <Link to={"/"}>
-        <p>Go back</p>
-      </Link>
-    </>
+            <button
+              type="submit"
+              className="w-full bg-white text-pink-600 font-bold py-2 rounded hover:bg-pink-100 transition"
+            >
+              Přidat shake
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setFormData({ type: "", ingredients: [] })}
+              className="w-full text-sm text-white underline mt-2"
+            >
+              Zpět na výběr typu
+            </button>
+          </form>
+        )}
+
+        {info && <p className="text-sm text-center mt-4 text-red-100">{info}</p>}
+
+        <Link to="/" className="block text-center mt-6 text-white hover:underline">
+          ← Zpět domů
+        </Link>
+      </div>
+    </div>
   );
 }
