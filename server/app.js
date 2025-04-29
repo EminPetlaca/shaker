@@ -11,7 +11,7 @@ const DATABASE_KEY = process.env.DATABASE_KEY;
 
 mongoose
   .connect(DATABASE_KEY)
-  .then(() => console.log("Database připojena"))
+  .then(() => console.log("Database connected"))
   .catch(() => console.log("Database nepřipojena"));
 
 const indexRouter = require('./routes/index');
