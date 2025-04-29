@@ -63,6 +63,7 @@ export default function ShakeView() {
       <h1>Shake view</h1>
       <p>{id}</p>
       <p>Shake type: {shake.type}</p>
+      <p>CUSTOMER NAME: {shake.customerName}</p>
       <p>Ingredients: {shake.ingredients.join(", ")}</p>
       <form>
         <input type="text" placeholder={shake.type} onChange={handleChange} />
