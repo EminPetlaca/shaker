@@ -11,9 +11,10 @@ export default function OrderSummary() {
         <p className="text-2xl text-pink-600 font-bold">Žádná objednávka k zobrazení.</p>
         <Link to="/" className="block mt-4 text-pink-700 underline">← Zpět domů</Link>
       </div>
+      
     );
   }
-
+{/*test*/}
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#ec5f74] to-[#fbc1cc] text-[#7B3F00] p-6">
       <div className="bg-white/40 backdrop-blur-sm p-8 rounded-lg shadow-lg max-w-md w-full text-center">
