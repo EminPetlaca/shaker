@@ -43,39 +43,49 @@ export default function ShakeView() {
   }, []);
 
   if (isLoaded === null) {
-    return (
-      <>
-        <p>Shake not found</p>
-      </>
-    );
+    return <p className="text-center mt-10 text-red-500">Shake not found</p>;
   }
 
   if (!isLoaded) {
-    return (
-      <>
-        <p>Shake is loading...</p>
-      </>
-    );
+    return <p className="text-center mt-10 text-gray-500">Loading shake...</p>;
   }
 
   return (
-    <>
-      <h1>Shake view</h1>
-      <p>{id}</p>
-      <p>Shake type: {shake.type}</p>
-      <p>Ingredients: {shake.ingredients.join(", ")}</p>
-      <form>
-        <input type="text" placeholder={shake.type} onChange={handleChange} />
-        <button onClick={handleDelete}>Delete Shake</button>
-      </form>
-      <p>{info}</p>
-      <Link to={`/update-shakes/${id}`}>
-        <p>Update Shake</p>
-      </Link>
+    <div className="min-h-screen w-full bg-gradient-to-br from-pink-400 to-pink-200 flex items-center justify-center px-4 py-10">
+      <div className="bg-white/20 backdrop-blur-md rounded-xl shadow-lg p-8 max-w-md w-full text-white">
+        <h1 className="text-3xl font-bold text-center mb-6 drop-shadow">Shake Detail</h1>
 
-      <Link to={"/"}>
-        <p>Go home</p>
-      </Link>
-    </>
+        <p className="mb-2"><span className="font-semibold">ID:</span> {id}</p>
+        <p className="mb-2"><span className="font-semibold">Type:</span> {shake.type}</p>
+        <p className="mb-2"><span className="font-semibold">Customer Name:</span> {shake.customerName}</p>
+        <p className="mb-4"><span className="font-semibold">Ingredients:</span> {shake.ingredients.join(", ")}</p>
+
+        <form onSubmit={handleDelete} className="space-y-4">
+          <input
+            type="text"
+            placeholder="Enter shake type to confirm delete"
+            onChange={handleChange}
+            className="w-full px-4 py-2 rounded bg-white/50 text-black placeholder-gray-600"
+          />
+          <button
+            type="submit"
+            className="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2 rounded transition"
+          >
+            Delete Shake
+          </button>
+        </form>
+
+        {info && <p className="text-sm mt-4 text-yellow-200 text-center">{info}</p>}
+
+        <div className="flex justify-between mt-6 text-sm">
+          <Link to={`/update-shakes/${id}`} className="underline hover:text-white">
+            Update Shake
+          </Link>
+          <Link to="/" className="underline hover:text-white">
+            Go Home
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 }
