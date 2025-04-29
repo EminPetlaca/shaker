@@ -1,23 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { HeartPulse } from "lucide-react";
-import { Palette } from "lucide-react";
-import { Zap } from "lucide-react";
-import { Smartphone } from "lucide-react";
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#ec5f74] to-[#fbc1cc] font-sans text-white">
       {/* Header */}
-      <header className="flex items-center justify-between px-8 py-6">
-        <div className="px-6 py-3 rounded-lg">
-          <img
-            src="/logo-main.png"
-            alt="Šejkyho Milkšejky"
-            className="h-16 pointer-events-none select-none"
-          />
-        </div>
-      </header>
+      <Header />
 
       {/* Hlavní sekce */}
       <main className="flex-1 flex flex-col items-center justify-center text-center px-4">
@@ -103,24 +91,9 @@ export default function Home() {
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            {
-              name: "Čoko bomb",
-              ingredients: "Čokoláda, karamel, šlehačka",
-              color: "bg-gradient-to-r from-red-900 via-yellow-600 to-white",
-            },
-
-            {
-              name: "Berry Fresh",
-              ingredients: "Jahoda, borůvka, banán",
-              color: "bg-gradient-to-r from-red-500 via-blue-500 to-yellow-500",
-            },
-
-            {
-              name: "Tropická exploze",
-              ingredients: "Mango, ananas, kokos",
-              color:
-                "bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-50",
-            },
+            { name: "Čoko bomb", ingredients: "Čokoláda, karamel, šlehačka" },
+            { name: "Berry Fresh", ingredients: "Jahoda, borůvka, banán" },
+            { name: "Tropická exploze", ingredients: "Mango, ananas, kokos" },
           ].map((shake, i) => (
             <div
               key={i}
