@@ -41,7 +41,7 @@ export default function ShakeCreateForm() {
   const postForm = async () => {
     const shake = await createShake(formData);
     if (shake.status === 201) {
-      return navigate("/summary");
+      return navigate("/summary", { state: formData });
     }
     setInfo(shake.message);
   };
