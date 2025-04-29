@@ -133,7 +133,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Jak to funguje */}
+      {/* Jak to funguje? */}
       <section className="py-10 px-6 text-center mt-10">
         <h2 className="text-2xl md:text-3xl font-bold mb-6 drop-shadow">
           Jak to funguje?
