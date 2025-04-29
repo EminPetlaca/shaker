@@ -192,6 +192,7 @@ export default function Home() {
               „Děti si tvoří svoje shakey samy a moc je to baví.“
             </p>
             <p className="mt-2 font-bold text-pink-700">– Petra z Ostravy</p>
+            {/*TEST*/}
           </div>
         </div>
       </section>
