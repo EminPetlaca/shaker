@@ -1,0 +1,74 @@
+.kontakty-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom right, #ec5f74, #fbc1cc);
+    font-family: 'Poppins', sans-serif;
+    color: white;
+  }
+  
+  .contact {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    text-align: left;
+  }
+  
+  .contact h1,
+  .contact h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .contact-info p {
+    margin: 10px 0;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  
+  input,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+  }
+  
+  button {
+    background-color: white;
+    color: #ec5f74;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #ffe3ea;
+    transform: scale(1.05);
+  }
+  
+  .kontakt-footer {
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.875rem;
+    user-select: none;
+    pointer-events: none;
+  }
+  
