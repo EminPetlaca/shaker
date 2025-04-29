@@ -19,6 +19,11 @@ const schema = mongoose.Schema({
             },
             message: props => `Invalid ingredient(s) for ${props.value}`
         }
+    },
+    customerName: {
+        type: String,
+        required: true,
+        minlength: 2
     }
 });
 
