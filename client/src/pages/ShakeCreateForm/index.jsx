@@ -17,6 +17,7 @@ export default function ShakeCreateForm() {
   const handleTypeChange = (type) => {
     setFormData({ type, ingredients: [], customerName: "" });
     setStep("ingredients");
+    setInfo(null);
   };
 
   const handleIngredientChange = (e) => {
@@ -40,7 +41,7 @@ export default function ShakeCreateForm() {
   const postForm = async () => {
     const shake = await createShake(formData);
     if (shake.status === 201) {
-      return navigate("/");
+      return navigate("/summary", { state: formData });
     }
     setInfo(shake.message);
   };
@@ -57,26 +58,32 @@ export default function ShakeCreateForm() {
 
   const handlePost = (e) => {
     e.preventDefault();
+    if (!formData.customerName.trim()) {
+      setInfo("Poprosili bychom tě zadat jméno, abychom věděli komu tento shake dát.");
+      return;
+    }
     postForm();
   };
 
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-[#ec5f74] to-[#fbc1cc] flex flex-col items-center justify-center px-4 py-10 text-white font-sans">
       <div className="bg-white/40 backdrop-blur-sm p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h1 className="text-3xl font-extrabold text-center mb-6 text-white drop-shadow">Vytvoř si svůj shake</h1>
+        <h1 className="text-3xl font-extrabold text-center mb-6 text-white drop-shadow">
+          Vytvoř si svůj shake
+        </h1>
 
         {/* Vyber typ */}
         {step === "type" && (
           <div className="grid grid-cols-2 gap-4 mb-6">
             <div
-              className="cursor-pointer rounded-lg p-4 text-center transition hover:scale-105 bg-white/30 backdrop-blur-md shadow"
+              className="cursor-pointer rounded-lg p-4 text-center transition hover:scale-105 text-[#7B3F00] backdrop-blur-md shadow"
               onClick={() => handleTypeChange("Milkshake")}
             >
               <img src="produkty/Shake.png" alt="Milkshake" className="w-full h-32 object-contain mb-2" />
               <span className="font-semibold">Milkshake</span>
             </div>
             <div
-              className="cursor-pointer rounded-lg p-4 text-center transition hover:scale-105 bg-white/30 backdrop-blur-md shadow"
+              className="cursor-pointer rounded-lg p-4 text-center transition hover:scale-105 text-[#7B3F00] backdrop-blur-md shadow"
               onClick={() => handleTypeChange("Smoothie")}
             >
               <img src="produkty/Smoothie.png" alt="Smoothie" className="w-full h-32 object-contain mb-2" />
@@ -92,7 +99,7 @@ export default function ShakeCreateForm() {
               {ingredientOptions[formData.type].map((ingredient) => (
                 <label
                   key={ingredient}
-                  className="flex flex-col items-center justify-center text-center p-4 rounded-lg bg-white/30 backdrop-blur-md shadow hover:scale-105 transition cursor-pointer"
+                  className="flex flex-col items-center justify-center text-center p-4 rounded-lg text-[#7B3F00] backdrop-blur-md shadow hover:scale-105 transition cursor-pointer"
                 >
                   <img
                     src={`/produkty/${ingredient.toLowerCase().replace(/ /g, '-')}.png`}
@@ -141,8 +148,9 @@ export default function ShakeCreateForm() {
                 value={formData.customerName}
                 onChange={handleNameChange}
                 placeholder="Zadej své jméno"
-                required
-                className="w-full p-2 rounded bg-white/70 text-pink-700 placeholder-pink-400 font-semibold"
+                className={`w-full p-2 rounded bg-white/70 text-pink-700 placeholder-pink-400 font-semibold ${
+                  info ? "border border-red-300" : ""
+                }`}
               />
             </div>
 
