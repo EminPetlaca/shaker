@@ -42,6 +42,7 @@ exports.createShake = async (req, res, next) => {
     const data = new Shake({
       type: req.body.type,
       ingredients: req.body.ingredients,
+      customerName: req.body.customerName,
     });
 
     const result = await data.save();
@@ -66,6 +67,7 @@ exports.updateShake = async (req, res, next) => {
     const data = {
       type: req.body.type,
       ingredients: req.body.ingredients,
+      customerName: req.body.customerName,
     };
 
     const result = await Shake.findByIdAndUpdate(req.params.id, data, { new: true });
