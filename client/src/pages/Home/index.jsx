@@ -136,7 +136,7 @@ export default function Home() {
       {/* Jak to funguje? */}
       <section className="py-10 px-6 text-center mt-10">
         <h2 className="text-2xl md:text-3xl font-bold mb-6 drop-shadow">
-          Jak to funguje?
+          Jak to funguje?  
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="p-4">
@@ -169,7 +169,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Recenze zákazníků */}
+      {/* Recenze zákazníků-- */}
       <section className="py-10 px-6 text-center mt-10 bg-gradient-to-r bg-white/20 rounded-3xl shadow-lg">
         <h2 className="text-2xl md:text-3xl font-bold mb-6 text-pink-500 drop-shadow-lg">
           Co říkají naši zákazníci?
