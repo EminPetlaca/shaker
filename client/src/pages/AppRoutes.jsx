@@ -8,12 +8,15 @@ import ShakeView from "./ShakeView";
 import OrderSummary from "./Summary";
 import ONas from "./ONas/index";
 import Kontakty from "./Kontakty/index";
+import { Toaster } from 'react-hot-toast';
 
 
 export default function AppRoutes() {
   return (
     <>
         <BrowserRouter>
+        <Toaster position="top-right" toastOptions={{
+          duration: 1500,}}/>
             <Routes>
                  {/*Admin Panel*/}
                 <Route path="/" element={<Home/>}/>
