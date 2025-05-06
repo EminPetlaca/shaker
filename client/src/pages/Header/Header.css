@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap');
+ 
+ body {
+     font-family: 'Rubik Wet Paint', sans-serif;
+     background-color: #f4f4f4; 
+     color: #ffffff; 
+     line-height: 1.8; 
+     font-size: 20px; 
+ }
+ 
+ .header {
+     display: flex;
+     justify-content: space-between; 
+     align-items: center;
+     padding: 20px;
+     background: transparent;
+     border-bottom: none;
+ }
+   
+ .logo-wrapper {
+     display: flex;
+     align-items: center;
+ }
+ 
+ .logo-link {
+     display: inline-block; 
+     cursor: pointer; 
+ }
+ 
+ .logo {
+     height: 110px;
+     transition: transform 0.3s ease; 
+ }
+ 
+ .logo:hover {
+     transform: scale(1.1); 
+ }
+ 
+ .nav {
+     display: flex;
+     gap: 40px;
+ }
+   
+ .nav-link {
+     text-decoration: none;
+     color: #ffffff; 
+     font-weight: bold;
+     transition: color 0.2s ease;
+     font-family: 'Rubik Wet Paint', sans-serif; 
+     font-size: 24px;
+ }
+   
+ .nav-link:hover {
+     color: #7B3F00;
+ }

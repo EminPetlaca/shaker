@@ -6,6 +6,8 @@ import ShakeList from "./ShakeList/";
 import ShakeUpdateForm from "./ShakeUpdateForm";
 import ShakeView from "./ShakeView";
 import OrderSummary from "./Summary";
+import ONas from "./ONas/index";
+import Kontakty from "./Kontakty/index";
 
 
 export default function AppRoutes() {
@@ -19,6 +21,8 @@ export default function AppRoutes() {
                 <Route path="/shakes/:id" element={<ShakeView/>}/>
                 <Route path="/update-shakes/:id" element={<ShakeUpdateForm/>}/>
                 <Route path="/summary" element={<OrderSummary/>}/>
+                <Route path="/o-nas" element={<ONas/>}/>
+                 <Route path="/kontakt" element={<Kontakty/>}/>
             </Routes>
         </BrowserRouter>
     </>

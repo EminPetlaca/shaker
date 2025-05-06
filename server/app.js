@@ -11,12 +11,11 @@ const DATABASE_KEY = process.env.DATABASE_KEY;
 
 mongoose
   .connect(DATABASE_KEY)
-  .then(() => console.log("Database connected"))
-  .catch(() => console.log("Database nepřipojena"));
+  .then(() => console.log("Database připojena ✅"))
+  .catch(() => console.log("Database nepřipojena ❌"));
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-// Change from carsRouter to shakeRouter
 const shakeRouter = require('./routes/shakes');
 
 const app = express();
@@ -34,7 +33,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-// Change from '/cars' to '/shake'
 app.use('/shakes', shakeRouter);
 
 // catch 404 and forward to error handler
