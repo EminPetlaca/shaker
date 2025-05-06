@@ -50,7 +50,7 @@ export default function Home() {
             key={shake._id}
             className="bg-white/20 backdrop-blur-md rounded-xl p-6 shadow-lg text-white relative hover:scale-105 transition-transform"
           >
-            <Link to={`/shake/${shake._id}`}>
+            <Link to={`/shakes/${shake._id}`}>
               <h2 className="text-2xl font-bold mb-2">{shake.type}</h2>
               <p className="text-sm mb-1"><span className="font-semibold">Customer:</span> {shake.customerName}</p>
               <p className="text-sm"><span className="font-semibold">Ingredients:</span> {shake.ingredients.join(", ")}</p>

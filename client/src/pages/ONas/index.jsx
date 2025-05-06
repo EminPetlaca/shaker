@@ -1,30 +1,42 @@
 import React from 'react';
-import './ONas.css';
-import Header from '../Header/index';
- 
- const ONas = () => {
-   return (
-     <div className="onas-container">
-       <Header />
-       <main className="onas-main">
-         <div className="onas-content">
-           <h1>O nás</h1>
-           <p>
-             Jsme dynamický tým s vášní pro inovace a technologii. Naší misí je přinášet 
-             kvalitní a kreativní řešení pro naše klienty. Naše zkušenosti a znalosti v oboru 
-             nám umožňují poskytovat efektivní a moderní služby, které splňují náročné požadavky.
-           </p>
-           <p>
-             Naše hodnoty zahrnují týmovou práci, transparentnost a zaměření na výsledky. 
-             Snažíme se neustále zlepšovat a hledat nové způsoby, jak vytvářet hodnotu pro naše klienty.
-           </p>
-         </div>
-       </main>
-       <footer className="onas-footer">
-         &copy; 2025 Šejkyho Milkšejky
-       </footer>
-     </div>
-   );
- };
- 
- export default ONas;
+import Header from '../Header';
+import Footer from "../Footer/index";
+import { Link } from 'react-router-dom';
+
+const ONas = () => {
+  return (
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#ec5f74] to-[#fbc1cc] text-white font-['Poppins',sans-serif]">
+      <Header />
+      <main className="flex-1 flex justify-center items-center px-6 py-12 text-center">
+        <div className="max-w-3xl bg-white/10 backdrop-blur-lg rounded-2xl p-10 shadow-xl">
+          <h1 className="text-5xl font-bold mb-6 drop-shadow-lg">O nás</h1>
+          <p className="text-lg mb-5 leading-relaxed">
+            Vítejte u <span className="font-semibold text-white">Šejkyho Milkšejků</span>!  Jsme mladý tým, který
+            přináší svěží mix inovací, technologií a lahodných chutí. Naším cílem je spojit tradiční receptury
+            s moderním přístupem a přinést vám milkshake zážitek nové generace.
+          </p>
+          <p className="text-lg mb-5 leading-relaxed">
+            Využíváme chytré objednávkové systémy, digitální personalizaci a neustále hledáme nové příchutě. 
+            Zákazník je pro nás středobodem a každý shake je vytvořen s láskou, kreativitou a technologickou precizností.
+          </p>
+          <p className="text-lg mb-5 leading-relaxed">
+            Zakládáme si na <span className="font-semibold">týmové spolupráci</span>, <span className="font-semibold">otevřené komunikaci</span> a <span className="font-semibold">neustálém růstu</span>. Jsme tady proto,
+            abychom vám nabídli víc než jen nápoj – chceme tvořit zážitek.
+          </p>
+
+          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+            <Link to="/add-shake" className="bg-white text-pink-600 font-bold py-3 px-6 rounded-full transition duration-300 hover:bg-pink-100">
+              Prozkoumat šejky
+            </Link>
+            <Link to="/kontakt" className="border border-white text-white font-bold py-3 px-6 rounded-full transition duration-300 hover:bg-white hover:text-pink-600">
+              Kontaktujte nás
+            </Link>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default ONas;

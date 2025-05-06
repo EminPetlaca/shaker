@@ -15,14 +15,16 @@ export default function AppRoutes() {
     <>
         <BrowserRouter>
             <Routes>
+                 {/*Admin Panel*/}
                 <Route path="/" element={<Home/>}/>
                 <Route path="/add-shake" element={<ShakeCreateForm/>}/>
                 <Route path="/view-shakes" element={<ShakeList/>}/>
                 <Route path="/shakes/:id" element={<ShakeView/>}/>
                 <Route path="/update-shakes/:id" element={<ShakeUpdateForm/>}/>
+
                 <Route path="/summary" element={<OrderSummary/>}/>
                 <Route path="/o-nas" element={<ONas/>}/>
-                 <Route path="/kontakt" element={<Kontakty/>}/>
+                <Route path="/kontakt" element={<Kontakty/>}/>
             </Routes>
         </BrowserRouter>
     </>
