@@ -5,6 +5,7 @@ import { Palette } from "lucide-react";
 import { Zap } from "lucide-react";
 import { Smartphone } from "lucide-react";
 import Header from "../Header/index";
+import Footer from "../Footer/index";
 
 export default function Home() {
   return (
@@ -23,7 +24,7 @@ export default function Home() {
           Dej si úžasný milkšejk!
         </h1>
            <Link to="/add-shake" className="relative z-10">
-        <button className="relative group overflow-hidden bg-white text-pink-600 px-8 py-3 my-6 rounded-full font-bold text-lg shadow-md transition-all duration-300 hover:scale-105 select-none">
+        <button className="relative cursor-pointer group overflow-hidden bg-white text-pink-600 px-8 py-3 my-6 rounded-full font-bold text-lg shadow-md transition-all duration-300 hover:scale-105 select-none">
             Vytvoř si svůj shake
         </button>
         {/* Vlnková poleva */}
@@ -36,7 +37,7 @@ export default function Home() {
          <h2 className="text-3xl md:text-4xl font-extrabold mb-10 text-pink-500 drop-shadow-lg">
            Proč si vytvořit vlastní shake?
          </h2>
-         <div className="grid md:grid-cols-4 gap-8">
+         <div className="grid md:grid-cols-4 gap-8 cursor-pointer select-none">
            {[
              {
                title: "Vlastní styl",
@@ -93,7 +94,7 @@ export default function Home() {
       <h2 className="text-2xl md:text-3xl font-bold mb-6 drop-shadow-lg text-pink-500">
            Oblíbené kombinace
          </h2>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 cursor-pointer select-none">
           {[
 {
   name: "Čoko bomb",
@@ -188,10 +189,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="mt-auto text-center py-4 text-pink-600 text-sm pointer-events-none select-none">
-        &copy; 2025 Šejkyho Milkšejky
-      </footer>
+<Footer/>
+
     </div>
   );
 }
