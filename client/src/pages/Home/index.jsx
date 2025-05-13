@@ -163,11 +163,11 @@ export default function Home() {
       </section>
 
       {/* Recenze zákazníků */}
-      <section className="py-10 px-6 text-center mt-10 bg-gradient-to-r bg-white/20 rounded-3xl shadow-lg">
+      <section className="py-10 px-6 text-center mt-10 bg-gradient-to-r bg-white/20 rounded-3xl shadow-lg select-none">
          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-pink-500 drop-shadow-lg">
            Co říkají naši zákazníci?
          </h2>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 cursor-pointer">
         <div className="p-6 bg-white/30 backdrop-blur-md rounded-xl shadow-lg hover:scale-105 hover:bg-pink-400 transition-all duration-300 ease-in-out">
              <p className="italic text-white">
                „Tak dobrý milkšejk jsem si ještě nikdy nesložil!“
