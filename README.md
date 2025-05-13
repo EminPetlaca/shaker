@@ -22,10 +22,10 @@ Tento projekt vznikl díky nadšení, kreativitě a týmové práci těchto čle
 - 🔧 [**Daniel Borko**](https://github.com/Swayy123456789)
 <br>
  <p align="center">
-  <img src="./tym-obrazky/danikR.png" alt="Tým 1" width="240"/>
-  <img src="./tym-obrazky/emin.png" alt="Tým 2" width="240"/>
-     <img src="./tym-obrazky/filip.png" alt="Tým 3" width="240"/>
-  <img src="./tym-obrazky/danikB.png" alt="Tým 3" width="240"/>
+  <img src="./tym-obrazky/danikR.png" alt="Danik Robotka" style="max-width: 240px; width: 24%"/>
+  <img src="./tym-obrazky/emin.png" alt="Emin Petlača" style="max-width: 240px; width: 24%"/>
+     <img src="./tym-obrazky/filip.png" alt="FiliP Šákr" style="max-width: 240px; width: 24%"/>
+  <img src="./tym-obrazky/danikB.png" alt="Danik Borko" style="max-width: 240px; width: 24%"/>
 </p>
 
 ## 🚀 Použité technologie
