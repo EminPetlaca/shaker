@@ -1,30 +1,38 @@
-const mongoose = require("mongoose");
+const Shake = require("../models/shakes");
 
-const schema = mongoose.Schema({
-    type: {
-        type: String,
-        enum: ["Smoothie", "Milkshake"],
-        required: true
-    },
-    ingredients: {
-        type: [String],
-        required: true,
-        validate: {
-            validator: function (value) {
-                const smoothieOptions = ["Banana", "Strawberry", "Mango", "Spinach"];
-                const milkshakeOptions = ["Chocolate", "Vanilla", "Strawberry Syrup", "Caramel"];
+exports.createShake = async (req, res) => {
+  const { type, ingredients, customerName } = req.body;
 
-                const allowed = this.type === "Smoothie" ? smoothieOptions : milkshakeOptions;
-                return value.every(v => allowed.includes(v));
-            },
-            message: props => `Invalid ingredient(s) for ${props.value}`
-        }
-    },
-    customerName: {
-        type: String,
-        required: true,
-        minlength: 2
+  if (!type || !ingredients || !customerName) {
+    return res.status(400).send({
+      message: "Všechna pole musí být vyplněna",
+    });
+  }
+
+  try {
+    const newShake = new Shake({
+      type,
+      ingredients,
+      customerName,
+    });
+
+    const result = await newShake.save();
+
+    if (result) {
+      return res.status(201).send({
+        message: "Shake byl úspěšně vytvořen",
+        payload: result,
+      });
     }
-});
 
-module.exports = mongoose.model("Shake", schema);
+    res.status(500).send({
+      message: "Shake nebyl vytvořen",
+    });
+  } catch (err) {
+    console.error("Chyba při vytváření shake:", err);
+    res.status(500).send({
+      message: "Došlo k chybě při vytváření shake",
+      error: err.message,
+    });
+  }
+};

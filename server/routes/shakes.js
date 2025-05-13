@@ -14,4 +14,8 @@ router.put('/:id', shakeRouter.updateShake);
 
 router.delete('/:id', shakeRouter.deleteShake); 
 
+
+router.post('/submit-form', shakeRouter.submitForm);
+
+
 module.exports = router;
