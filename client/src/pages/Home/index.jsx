@@ -91,40 +91,51 @@ export default function Home() {
 
       {/* Ukázky oblíbených kombinací */}
       <section className="py-10 px-6 text-center bg-white/20 mt-10">
-      <h2 className="text-2xl md:text-3xl font-bold mb-6 drop-shadow-lg text-pink-500">
-           Oblíbené kombinace
-         </h2>
-        <div className="grid md:grid-cols-3 gap-6 cursor-pointer select-none">
-          {[
-{
-  name: "Čoko bomb",
-  ingredients: "Čokoláda, karamel, šlehačka",
-  color: "bg-gradient-to-r from-red-900 via-yellow-600 to-white",
-},
+  <h2 className="text-2xl md:text-3xl font-bold mb-6 drop-shadow-lg text-pink-500">
+    Oblíbené kombinace
+  </h2>
+  <div className="grid md:grid-cols-3 gap-6 cursor-pointer select-none">
+    {[
+      {
+        name: "Čoko bomb",
+        ingredients: "Čokoláda, karamel, šlehačka",
+        image: "/kombinace/cokolada.png",
+      },
+      {
+        name: "Berry Fresh",
+        ingredients: "Jahoda, borůvka, banán",
+        image: "/kombinace/lesnismes.png",
+      },
+      {
+        name: "Tropická exploze",
+        ingredients: "Mango, ananas, kokos",
+        image: "/kombinace/banan.png",
+      },
+    ].map((shake, i) => (
+      <div
+        key={i}
+        className="relative p-6 rounded-xl overflow-hidden shadow-lg text-white hover:scale-105 transition-transform duration-300 ease-in-out h-48 flex flex-col justify-end"
+      >
+        {/* Obrázek jako pozadí */}
+        <img
+          src={shake.image}
+          alt={shake.name}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
 
-{
-  name: "Berry Fresh",
-  ingredients: "Jahoda, borůvka, banán",
-  color: "bg-gradient-to-r from-red-500 via-blue-500 to-yellow-500",
-},
+        {/* Tmavý průhledný překryv */}
+        <div className="absolute inset-0 bg-black/40" />
 
-{
-  name: "Tropická exploze",
-  ingredients: "Mango, ananas, kokos",
-  color:
-    "bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-50",
-},
-          ].map((shake, i) => (
-            <div
-            key={i}
-            className={`p-6 rounded-xl shadow-lg ${shake.color} backdrop-blur-lg text-white hover:scale-105 transition-transform duration-300 ease-in-out`}
-          >
-              <h3 className="text-xl font-bold mb-2">{shake.name}</h3>
-              <p className="text-sm">{shake.ingredients}</p>
-            </div>
-          ))}
+        {/* Obsah */}
+        <div className="relative z-10">
+          <h3 className="text-xl font-bold mb-1">{shake.name}</h3>
+          <p className="text-sm">{shake.ingredients}</p>
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+</section>
+
 
       {/* Jak to funguje */}
       <section className="py-10 px-6 text-center mt-10">
