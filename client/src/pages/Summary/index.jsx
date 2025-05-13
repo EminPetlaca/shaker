@@ -40,6 +40,9 @@ export default function OrderSummary() {
         <h1 className="text-3xl font-extrabold mb-6">Děkujeme za objednávku!</h1>
 
         <div className="text-left space-y-2 mb-6">
+          <p><strong>Typ shaku:</strong> {data.type}</p>
+          <p><strong>Ingredience:</strong> {data.ingredients.join(", ")}</p>
+          <p><strong>Pro zákazníka:</strong> {data.customerName}</p>
           <p>
             <i className="fas fa-basket-shopping" style={{ marginRight: '5px' }} title="Ingredience"></i>
             {data.ingredients.join(", ")}
