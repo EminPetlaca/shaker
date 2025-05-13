@@ -20,6 +20,13 @@ Tento projekt vznikl díky nadšení, kreativitě a týmové práci těchto čle
 - 🛠️ [**Emin Petlača**](https://github.com/EminPetlaca)
 - 🔧 [**Filip Šákr**](https://github.com/Shaker32)
 - 🔧 [**Daniel Borko**](https://github.com/Swayy123456789)
+<br>
+ <p align="center">
+  <img src="./tym-obrazky/danikR.png" alt="Tým 1" width="240"/>
+  <img src="./tym-obrazky/emin.png" alt="Tým 2" width="240"/>
+     <img src="./tym-obrazky/filip.png" alt="Tým 3" width="240"/>
+  <img src="./tym-obrazky/danikB.png" alt="Tým 3" width="240"/>
+</p>
 
 ## 🚀 Použité technologie
 
