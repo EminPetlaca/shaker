@@ -1,6 +1,73 @@
 const Shake = require("../models/shakes");
+const Form = require("../models/form");
 
-// Get all shakes
+// Funkce pro vytvoření formuláře
+exports.createForm = async (req, res) => {
+  console.log("Přijatá data:", req.body); // Logujeme, co přijímáme
+  try {
+    const newForm = new Form({
+      name: req.body.name,
+      email: req.body.email,
+      message: req.body.message,
+    });
+
+    const savedForm = await newForm.save();
+    res.status(201).send({
+      message: 'Formulář byl úspěšně odeslán!',
+      payload: savedForm
+    });
+  } catch (error) {
+    console.error('Chyba při ukládání formuláře:', error);
+    res.status(500).send({
+      message: 'Došlo k chybě při ukládání formuláře',
+      error: error.message
+    });
+  }
+};
+
+// Funkce pro odeslání formuláře s validací
+exports.submitForm = async (req, res, next) => {
+  const { name, email, message } = req.body;
+
+  // Validace: Zkontrolujeme, zda všechna pole obsahují data
+  if (!name || !email || !message) {
+    return res.status(400).send({
+      message: "Všechna pole musí být vyplněna",
+    });
+  }
+
+  try {
+    // Vytvoření nového formuláře
+    const newForm = new Form({
+      name,
+      email,
+      message,
+    });
+
+    // Uložení formuláře do databáze
+    const savedForm = await newForm.save();
+
+    // Odpověď pro úspěšné uložení
+    if (savedForm) {
+      return res.status(201).send({
+        message: "Formulář byl úspěšně odeslán",
+        payload: savedForm,
+      });
+    }
+
+    res.status(500).send({
+      message: "Formulář nebyl odeslán",
+    });
+  } catch (err) {
+    console.error("Chyba při odesílání formuláře:", err);
+    res.status(500).send({
+      message: "Došlo k chybě při odesílání formuláře",
+      error: err.message,
+    });
+  }
+};
+
+// Získání všech shake
 exports.getAllShakes = async (req, res, next) => {
   try {
     const data = await Shake.find();
@@ -18,7 +85,7 @@ exports.getAllShakes = async (req, res, next) => {
   }
 };
 
-// Get shake by ID
+// Získání shake podle ID
 exports.getShakeById = async (req, res, next) => {
   try {
     const data = await Shake.findById(req.params.id);
@@ -36,7 +103,7 @@ exports.getShakeById = async (req, res, next) => {
   }
 };
 
-// Create a new shake
+// Vytvoření nového shake
 exports.createShake = async (req, res, next) => {
   try {
     const data = new Shake({
@@ -61,7 +128,7 @@ exports.createShake = async (req, res, next) => {
   }
 };
 
-// Update shake
+// Aktualizace shake
 exports.updateShake = async (req, res, next) => {
   try {
     const data = {
@@ -86,7 +153,7 @@ exports.updateShake = async (req, res, next) => {
   }
 };
 
-// Delete shake
+// Smazání shake
 exports.deleteShake = async (req, res, next) => {
   try {
     const result = await Shake.findByIdAndDelete(req.params.id);
