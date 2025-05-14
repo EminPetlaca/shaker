@@ -33,7 +33,7 @@ export default function Home() {
       </main>
 
       {/* Výhody služby */}
-      <section className="py-16 px-6 text-center bg-pink-50/50 mt-12 rounded-3xl shadow-2xl">
+      <section className="py-16 px-6 text-center  bg-white/20 mt-12 rounded-3xl shadow-2xl">
          <h2 className="text-3xl md:text-4xl font-extrabold mb-10 text-pink-500 drop-shadow-lg">
            Proč si vytvořit vlastní shake?
          </h2>
@@ -98,23 +98,23 @@ export default function Home() {
     {[
       {
         name: "Čoko bomb",
-        ingredients: "Čokoláda, karamel, šlehačka",
+        ingredients: "Čokoláda, lotus, bueno",
         image: "/kombinace/cokolada.png",
       },
       {
         name: "Berry Fresh",
-        ingredients: "Jahoda, borůvka, banán",
+        ingredients: "Jahoda, borůvka, malina",
         image: "/kombinace/lesnismes.png",
       },
       {
         name: "Tropická exploze",
-        ingredients: "Mango, ananas, kokos",
+        ingredients: "Kiwi, med, banan",
         image: "/kombinace/banan.png",
       },
     ].map((shake, i) => (
       <div
         key={i}
-        className="relative p-6 rounded-xl overflow-hidden shadow-lg text-white hover:scale-105 transition-transform duration-300 ease-in-out h-48 flex flex-col justify-end"
+        className="relative p-6 rounded-xl overflow-hidden shadow-lg text-white hover:scale-105 transition-transform duration-300 ease-in-out h-48 flex items-center justify-center text-center"
       >
         {/* Obrázek jako pozadí */}
         <img
@@ -124,12 +124,12 @@ export default function Home() {
         />
 
         {/* Tmavý průhledný překryv */}
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/20" />
 
-        {/* Obsah */}
+        {/* Obsah ve středu */}
         <div className="relative z-10">
-          <h3 className="text-xl font-bold mb-1">{shake.name}</h3>
-          <p className="text-sm">{shake.ingredients}</p>
+          <h3 className="text-2xl md:text-3xl font-extrabold">{shake.name}</h3>
+          <p className="text-sm mt-1">{shake.ingredients}</p>
         </div>
       </div>
     ))}
@@ -137,9 +137,10 @@ export default function Home() {
 </section>
 
 
+
       {/* Jak to funguje */}
       <section className="py-10 px-6 text-center mt-10">
-      <h2 className="text-2xl md:text-3xl font-bold mb-6 drop-shadow">
+      <h2 className="text-2xl md:text-3xl font-bold mb-6 drop-shadow text-pink-500">
            Jak to funguje?
          </h2>
         <div className="grid md:grid-cols-3 gap-6">

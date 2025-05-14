@@ -9,7 +9,7 @@ const Kontakty = () => {
 
   const handlePost = async (e) => {
     e.preventDefault();
-   // setFormSubmitted(true);
+   setFormSubmitted(true);
     const data = await createForm(formData);
     if (data.status === 201) {
       alert("odeslalo se");
