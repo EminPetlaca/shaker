@@ -9,6 +9,8 @@ import OrderSummary from "./Summary";
 import ONas from "./ONas/index";
 import Kontakty from "./Kontakty/index";
 import { Toaster } from 'react-hot-toast';
+import AdminPanel from "./AdminPanel";
+import SupportPage from "./Support";
 
 
 export default function AppRoutes() {
@@ -28,6 +30,9 @@ export default function AppRoutes() {
                 <Route path="/summary" element={<OrderSummary/>}/>
                 <Route path="/o-nas" element={<ONas/>}/>
                 <Route path="/kontakt" element={<Kontakty/>}/>
+                <Route path="/adminpanel" element={<AdminPanel/>}/>                
+                <Route path="/support" element={<SupportPage/>}/>                
+
             </Routes>
         </BrowserRouter>
     </>
