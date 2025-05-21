@@ -6,14 +6,22 @@ import toast from 'react-hot-toast';
 
 // Mapa barev pro ingredience
 const ingredientColors = {
-  Banana: "bg-yellow-300 text-yellow-900",
-  Strawberry: "bg-pink-300 text-pink-900",
-  Mango: "bg-orange-300 text-orange-900",
-  Spinach: "bg-green-300 text-green-900",
-  Chocolate: "bg-amber-900 text-amber-100",
-  Vanilla: "bg-yellow-100 text-yellow-800",
-  "Strawberry Syrup": "bg-rose-300 text-rose-900",
-  Caramel: "bg-amber-300 text-amber-900",
+    Banán: "bg-yellow-300",
+    "Bílá Čokoláda": "bg-stone-200",
+    Borůvka: "bg-blue-400",
+    Čokoláda: "bg-amber-900 text-white",
+    Cukr: "bg-gray-200 text-gray-800",
+    Jablko: "bg-red-400",
+    Jahoda: "bg-pink-400",
+    Kiwi: "bg-lime-400",
+    Malina: "bg-rose-400",
+    Med: "bg-yellow-500",
+    Meruňka: "bg-orange-400",
+    Lotus: "bg-amber-500",
+    Oreo: "bg-neutral-500 text-white",
+    Zmrzlina: "bg-pink-200",
+    Milkshake: "bg-pink-300",
+    Smoothie: "bg-pink-500",
 };
 
 export default function Home() {

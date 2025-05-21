@@ -2,16 +2,25 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { createShake } from "../../models/Shake";
 import React from "react";
+import { Home, ArrowLeft } from "lucide-react";
+
+// Slugify pomocná funkce
+const slugify = (str) =>
+  str
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, "-");
 
 export default function ShakeCreateForm() {
   const [formData, setFormData] = useState({ type: "", ingredients: [], customerName: "" });
   const [info, setInfo] = useState();
-  const [step, setStep] = useState("type"); // "type", "ingredients", "name"
+  const [step, setStep] = useState("type");
   const navigate = useNavigate();
 
   const ingredientOptions = {
-    Smoothie: ["Banana", "Strawberry", "Mango", "Spinach"],
-    Milkshake: ["Chocolate", "Vanilla", "Strawberry Syrup", "Caramel"]
+    Smoothie: ["Banán", "Borůvka", "Jablko", "Cukr", "Jahoda", "Kiwi", "Malina", "Med", "Meruňka"],
+    Milkshake: ["Banán", "Bílá Čokoláda", "Čokoláda", "Jahoda", "Lotus", "Cukr", "Malina", "Oreo", "Zmrzlina"],
   };
 
   const handleTypeChange = (type) => {
@@ -25,6 +34,10 @@ export default function ShakeCreateForm() {
     const value = e.target.value;
 
     if (e.target.checked) {
+      if (selected.length >= 4) {
+        setInfo("Můžeš vybrat maximálně 4 ingredience.");
+        return;
+      }
       selected.push(value);
     } else {
       const index = selected.indexOf(value);
@@ -32,6 +45,7 @@ export default function ShakeCreateForm() {
     }
 
     setFormData({ ...formData, ingredients: selected });
+    setInfo(null);
   };
 
   const handleNameChange = (e) => {
@@ -67,78 +81,71 @@ export default function ShakeCreateForm() {
 
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-[#ec5f74] to-[#fbc1cc] flex flex-col items-center justify-center px-4 py-10 text-white font-sans">
-      <div className="bg-white/40 backdrop-blur-sm p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h1 className="text-3xl font-extrabold text-center mb-6 text-white drop-shadow">
-          Vytvoř si svůj shake
-        </h1>
+      <div className="bg-white/40 backdrop-blur-sm p-8 rounded-lg shadow-lg w-full max-w-md relative select-none">
+        {/* Navigace v horní části */}
+        <div className="absolute top-4 left-4 cursor-pointer" onClick={() => setStep("type")}> <ArrowLeft /> </div>
+        <Link to="/" className="absolute top-4 right-4 text-white cursor-pointer">
+          <Home />
+        </Link>
 
-        {/* Vyber typ */}
+        <h1 className="text-3xl font-extrabold text-center mb-6 text-white drop-shadow">Vytvoř si svůj shake</h1>
+
         {step === "type" && (
           <div className="grid grid-cols-2 gap-4 mb-6">
-            <div
-              className="cursor-pointer rounded-lg p-4 text-center transition hover:scale-105 text-[#7B3F00] backdrop-blur-md shadow"
-              onClick={() => handleTypeChange("Milkshake")}
-            >
-              <img src="produkty/Shake.png" alt="Milkshake" className="w-full h-32 object-contain mb-2" />
-              <span className="font-semibold">Milkshake</span>
-            </div>
-            <div
-              className="cursor-pointer rounded-lg p-4 text-center transition hover:scale-105 text-[#7B3F00] backdrop-blur-md shadow"
-              onClick={() => handleTypeChange("Smoothie")}
-            >
-              <img src="produkty/Smoothie.png" alt="Smoothie" className="w-full h-32 object-contain mb-2" />
-              <span className="font-semibold">Smoothie</span>
-            </div>
+            {["Milkshake", "Smoothie"].map((type) => (
+              <div
+                key={type}
+                className="cursor-pointer rounded-lg p-4 text-center transition hover:scale-105 text-[#7B3F00] backdrop-blur-md shadow"
+                onClick={() => handleTypeChange(type)}
+              >
+                <img src={`produkty/${type}.png`} alt={type} className="w-full h-32 object-contain mb-2" draggable={false} />
+                <span className="font-semibold">{type}</span>
+              </div>
+            ))}
           </div>
         )}
 
-        {/* Vyber ingredience */}
         {step === "ingredients" && (
           <form onSubmit={handleSubmitIngredients} className="space-y-4">
-            <div className="grid grid-cols-2 gap-4 mb-6">
-              {ingredientOptions[formData.type].map((ingredient) => (
-                <label
-                  key={ingredient}
-                  className="flex flex-col items-center justify-center text-center p-4 rounded-lg text-[#7B3F00] backdrop-blur-md shadow hover:scale-105 transition cursor-pointer"
-                >
-                  <img
-                    src={`/produkty/${ingredient.toLowerCase().replace(/ /g, '-')}.png`}
-                    alt={ingredient}
-                    className="h-20 object-contain mb-2"
-                  />
-                  <div className="flex items-center space-x-2">
+            <div className="grid grid-cols-3 gap-4 mb-6">
+              {ingredientOptions[formData.type].map((ingredient) => {
+                const isSelected = formData.ingredients.includes(ingredient);
+                const isDisabled = !isSelected && formData.ingredients.length >= 4;
+
+                return (
+                  <label
+                    key={ingredient}
+                    className={`flex flex-col items-center justify-center text-center p-2 rounded-lg text-[#7B3F00] backdrop-blur-md shadow transition cursor-pointer border-2 ${
+                      isSelected ? "border-white bg-white/60" : "border-transparent hover:border-white"
+                    } ${isDisabled ? "opacity-50 cursor-not-allowed" : "hover:scale-105"}`}
+                  >
+                    <img
+                      src={`/produkty/${slugify(ingredient)}.png`}
+                      alt={ingredient}
+                      className="h-16 object-contain mb-1"
+                      draggable={false}
+                    />
                     <input
                       type="checkbox"
                       name="ingredients"
                       value={ingredient}
-                      checked={formData.ingredients.includes(ingredient)}
+                      checked={isSelected}
+                      disabled={isDisabled}
                       onChange={handleIngredientChange}
-                      className="accent-pink-600"
+                      className="hidden"
                     />
-                    <span>{ingredient}</span>
-                  </div>
-                </label>
-              ))}
+                    <span className="text-xs font-medium">{ingredient}</span>
+                  </label>
+                );
+              })}
             </div>
 
-            <button
-              type="submit"
-              className="w-full bg-white text-pink-600 font-bold py-2 rounded hover:bg-pink-100 transition"
-            >
+            <button type="submit" className="w-full bg-white text-pink-600 font-bold py-2 rounded hover:bg-pink-100 transition">
               Pokračovat
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setStep("type")}
-              className="w-full text-sm text-white underline mt-2"
-            >
-              Zpět na výběr typu
             </button>
           </form>
         )}
 
-        {/* Zadání jména */}
         {step === "name" && (
           <form onSubmit={handlePost} className="space-y-4">
             <div className="space-y-2 mb-6">
@@ -154,28 +161,13 @@ export default function ShakeCreateForm() {
               />
             </div>
 
-            <button
-              type="submit"
-              className="w-full bg-white text-pink-600 font-bold py-2 rounded hover:bg-pink-100 transition"
-            >
+            <button type="submit" className="w-full bg-white text-pink-600 font-bold py-2 rounded hover:bg-pink-100 transition">
               Přidat shake
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setStep("ingredients")}
-              className="w-full text-sm text-white underline mt-2"
-            >
-              Zpět na ingredience
             </button>
           </form>
         )}
 
         {info && <p className="text-sm text-center mt-4 text-red-100">{info}</p>}
-
-        <Link to="/" className="block text-center mt-6 text-white hover:underline">
-          ← Zpět domů
-        </Link>
       </div>
     </div>
   );
