@@ -1,32 +1,36 @@
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import { getAllShakes, deleteShake } from "../../models/Shake";
-import { X, User, ChefHat, ScrollText, CupSoda,  CheckCircle  } from 'lucide-react';
+import { X, User, ChefHat, ScrollText, CupSoda, CheckCircle } from 'lucide-react';
 import toast from 'react-hot-toast';
 
-// Mapa barev pro ingredience
 const ingredientColors = {
-    Banán: "bg-yellow-300",
-    "Bílá Čokoláda": "bg-stone-200",
-    Borůvka: "bg-blue-400",
-    Čokoláda: "bg-amber-900 text-white",
-    Cukr: "bg-gray-200 text-gray-800",
-    Jablko: "bg-red-400",
-    Jahoda: "bg-pink-400",
-    Kiwi: "bg-lime-400",
-    Malina: "bg-rose-400",
-    Med: "bg-yellow-500",
-    Meruňka: "bg-orange-400",
-    Lotus: "bg-amber-500",
-    Oreo: "bg-neutral-500 text-white",
-    Zmrzlina: "bg-pink-200",
-    Milkshake: "bg-pink-300",
-    Smoothie: "bg-pink-500",
+  Banán: "bg-yellow-300",
+  "Bílá Čokoláda": "bg-stone-200",
+  Borůvka: "bg-blue-400",
+  Čokoláda: "bg-amber-900 text-white",
+  Cukr: "bg-gray-200 text-gray-800",
+  Jablko: "bg-red-400",
+  Jahoda: "bg-pink-400",
+  Kiwi: "bg-lime-400",
+  Malina: "bg-rose-400",
+  Med: "bg-yellow-500",
+  Meruňka: "bg-orange-400",
+  Lotus: "bg-amber-500",
+  Oreo: "bg-neutral-500 text-white",
+  Zmrzlina: "bg-pink-200",
+  Milkshake: "bg-pink-300",
+  Smoothie: "bg-pink-500",
 };
 
 export default function Home() {
   const [shakes, setShakes] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
+  const [isAuthenticated, setAuthenticated] = useState(false);
+  const [passwordInput, setPasswordInput] = useState("");
+
+  const navigate = useNavigate();
+  const correctPassword = "123"; // 🔒 Change this
 
   const loadShakes = async () => {
     const data = await getAllShakes();
@@ -39,8 +43,10 @@ export default function Home() {
   };
 
   useEffect(() => {
-    loadShakes();
-  }, []);
+    if (isAuthenticated) {
+      loadShakes();
+    }
+  }, [isAuthenticated]);
 
   const handleDelete = async (id) => {
     const result = await deleteShake(id);
@@ -50,7 +56,7 @@ export default function Home() {
       toast.custom((t) => (
         <div
           className={`${
-            t.visible ? 'animate-enter' : 'animate-leave'
+            t.visible ? "animate-enter" : "animate-leave"
           } bg-white text-pink-600 rounded-lg shadow-lg px-5 py-4 flex items-center gap-3 max-w-sm w-full border-l-4 border-pink-500`}
         >
           <CheckCircle className="text-pink-500" size={24} />
@@ -63,6 +69,41 @@ export default function Home() {
       toast.error("Nepodařilo se smazat shake.");
     }
   };
+
+  const handlePasswordSubmit = (e) => {
+    e.preventDefault();
+    if (passwordInput === correctPassword) {
+      setAuthenticated(true);
+    } else {
+      toast.error("Nesprávné heslo.");
+    }
+  };
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-400 to-pink-200 px-4">
+        <form
+          onSubmit={handlePasswordSubmit}
+          className="bg-white/20 backdrop-blur-md p-8 rounded-xl shadow-xl text-white max-w-md w-full"
+        >
+          <h2 className="text-3xl font-bold mb-6 text-center">Zadejte heslo</h2>
+          <input
+            type="password"
+            placeholder="Heslo"
+            value={passwordInput}
+            onChange={(e) => setPasswordInput(e.target.value)}
+            className="w-full p-3 rounded bg-white/60 text-black placeholder-gray-600 mb-4"
+          />
+          <button
+            type="submit"
+            className="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 rounded transition"
+          >
+            Pokračovat
+          </button>
+        </form>
+      </div>
+    );
+  }
 
   if (isLoaded === null) {
     return <p className="text-center text-red-500 mt-10">Žádné shakey nenalezeny</p>;
@@ -124,7 +165,7 @@ export default function Home() {
           to="/add-shake"
           className="inline-block bg-pink-500 text-white font-semibold py-3 px-6 rounded-full hover:bg-pink-600 transition shadow-md"
         >
-           Přidat nový shake
+          Přidat nový shake
         </Link>
       </div>
     </div>
