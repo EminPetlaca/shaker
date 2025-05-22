@@ -11,8 +11,8 @@ const schema = mongoose.Schema({
         required: true,
         validate: {
             validator: function (value) {
-                const smoothieOptions = ["Banana", "Strawberry", "Mango", "Spinach"];
-                const milkshakeOptions = ["Chocolate", "Vanilla", "Strawberry Syrup", "Caramel"];
+                const smoothieOptions = ["Banán", "Borůvka", "Jablko", "Cukr","Jahoda", "Kiwi","Malina","Med","Meruňka",];
+                const milkshakeOptions = ["Banán", "Bílá Čokoláda", "Čokoláda", "Jahoda","Lotus", "Cukr", "Malina","Oreo","Zmrzlina",];
 
                 const allowed = this.type === "Smoothie" ? smoothieOptions : milkshakeOptions;
                 return value.every(v => allowed.includes(v));

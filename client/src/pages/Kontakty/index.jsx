@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from '../Header/index';
 import Footer from "../Footer/index";
 import { createForm } from '../../models/Form';
+import toast from 'react-hot-toast';
 
 const Kontakty = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -9,15 +10,16 @@ const Kontakty = () => {
 
   const handlePost = async (e) => {
     e.preventDefault();
-   setFormSubmitted(true);
+    setFormSubmitted(true);
     const data = await createForm(formData);
+
     if (data.status === 201) {
-      alert("odeslalo se");
+      toast.success("Formulář byl úspěšně odeslán!");
     } else {
-      alert("neodeslalo se, chyba " + data.status);
+      toast.error("Nepodařilo se odeslat, chyba: " + data.status);
     }
-  }
-  
+  };
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -39,10 +41,7 @@ const Kontakty = () => {
         <h2 className="text-2xl font-bold text-center mb-6 drop-shadow">Formulář pro kontakt:</h2>
         
         {!formSubmitted && (
-          <form
-            className="space-y-6"
-          onSubmit={handlePost}
-          >
+          <form className="space-y-6" onSubmit={handlePost}>
             <div>
               <label htmlFor="name" className="block font-semibold mb-1">Jméno:</label>
               <input
