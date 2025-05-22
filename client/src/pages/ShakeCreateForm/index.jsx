@@ -83,7 +83,9 @@ export default function ShakeCreateForm() {
     <div className="min-h-screen w-full bg-gradient-to-br from-[#ec5f74] to-[#fbc1cc] flex flex-col items-center justify-center px-4 py-10 text-white font-sans">
       <div className="bg-white/40 backdrop-blur-sm p-8 rounded-lg shadow-lg w-full max-w-md relative select-none">
         {/* Navigace v horní části */}
-        <div className="absolute top-4 left-4 cursor-pointer" onClick={() => setStep("type")}> <ArrowLeft /> </div>
+        <div className="absolute top-4 left-4 cursor-pointer" onClick={() => setStep("type")}>
+          <ArrowLeft />
+        </div>
         <Link to="/" className="absolute top-4 right-4 text-white cursor-pointer">
           <Home />
         </Link>
@@ -98,7 +100,12 @@ export default function ShakeCreateForm() {
                 className="cursor-pointer rounded-lg p-4 text-center transition hover:scale-105 text-[#7B3F00] backdrop-blur-md shadow"
                 onClick={() => handleTypeChange(type)}
               >
-                <img src={`produkty/${type}.png`} alt={type} className="w-full h-32 object-contain mb-2" draggable={false} />
+                <img
+                  src={`produkty/${type}.png`}
+                  alt={type}
+                  className="w-full h-32 object-contain mb-2"
+                  draggable={false}
+                />
                 <span className="font-semibold">{type}</span>
               </div>
             ))}
@@ -140,7 +147,10 @@ export default function ShakeCreateForm() {
               })}
             </div>
 
-            <button type="submit" className="w-full bg-white text-pink-600 font-bold py-2 rounded hover:bg-pink-100 transition">
+            <button
+              type="submit"
+              className="w-full bg-white text-pink-600 font-bold py-2 rounded hover:bg-pink-100 transition"
+            >
               Pokračovat
             </button>
           </form>
@@ -161,7 +171,10 @@ export default function ShakeCreateForm() {
               />
             </div>
 
-            <button type="submit" className="w-full bg-white text-pink-600 font-bold py-2 rounded hover:bg-pink-100 transition">
+            <button
+              type="submit"
+              className="w-full bg-white text-pink-600 font-bold py-2 rounded hover:bg-pink-100 transition"
+            >
               Vytvořit shake
             </button>
           </form>
