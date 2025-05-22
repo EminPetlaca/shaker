@@ -181,19 +181,19 @@ export default function Home() {
          </h2>
         <div className="grid md:grid-cols-3 gap-6 cursor-pointer">
         <div className="p-6 bg-white/30 backdrop-blur-md rounded-xl shadow-lg hover:scale-105 hover:bg-pink-400 transition-all duration-300 ease-in-out">
-             <p className="italic text-white">
+             <p className="italic text-[#7B3F00]">
                „Tak dobrý milkšejk jsem si ještě nikdy nesložil!“
              </p>
              <p className="mt-2 font-bold text-pink-700">– Honza z Prahy</p>
           </div>
           <div className="p-6 bg-white/30 backdrop-blur-md rounded-xl shadow-lg hover:scale-105 hover:bg-pink-400 transition-all duration-300 ease-in-out">
-             <p className="italic text-white">
+             <p className="italic text-[#7B3F00]">
                „Miluju ten design a jednoduchost! 💕”
              </p>
              <p className="mt-2 font-bold text-pink-700">– Eliška z Brna</p>
           </div>
           <div className="p-6 bg-white/30 backdrop-blur-md rounded-xl shadow-lg hover:scale-105 hover:bg-pink-400 transition-all duration-300 ease-in-out">
-             <p className="italic text-white">
+             <p className="italic text-[#7B3F00]">
                „Děti si tvoří svoje shakey samy a moc je to baví.“
              </p>
              <p className="mt-2 font-bold text-pink-700">– Petra z Ostravy</p>
