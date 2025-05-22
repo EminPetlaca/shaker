@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
-import Header from '../Header/index';
+import React, { useState } from "react";
+import Header from "../Header/index";
 import Footer from "../Footer/index";
-import { createForm } from '../../models/Form';
-import toast from 'react-hot-toast';
+import { createForm } from "../../models/Form";
+import toast from "react-hot-toast";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 const Kontakty = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formData, setFormData] = useState();
+  const [formData, setFormData] = useState({});
 
   const handlePost = async (e) => {
     e.preventDefault();
@@ -25,74 +26,108 @@ const Kontakty = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#ec5f74] to-[#fbc1cc] text-white font-['Poppins',sans-serif]">
+    <div className="min-h-screen bg-gradient-to-br from-[#ec5f74] to-[#fbc1cc] text-black font-['Poppins',sans-serif]">
       <Header />
-      <main className="max-w-3xl mx-auto my-10 p-6 bg-white/10 backdrop-blur-md rounded-2xl text-left">
-        <h1 className="text-4xl font-bold text-center mb-6 drop-shadow">Kontakty</h1>
-        <p className="mb-6 text-lg">
-          Pokud nás chcete kontaktovat, neváhejte nás oslovit pomocí následujících údajů:
-        </p>
-        <div className="mb-8 space-y-2">
-          <p><strong>Email:</strong> sejky@milksejky.com</p>
-          <p><strong>Telefon:</strong> +420 123 456 789</p>
-          <p><strong>Adresa:</strong> Pařížská 123, Praha, PSČ</p>
-        </div>
+      <main className="flex justify-center items-center py-16 px-4">
+        <div className="relative glow-box w-full max-w-[800px] bg-white backdrop-blur-md rounded-3xl shadow-xl p-12 text-black transition-all duration-300 hover:shadow-2xl hover:scale-[1.01]">
+          <h1 className="text-5xl font-extrabold text-center mb-13 mt-5 drop-shadow-lg tracking-tight">
+            Kontakty
+          </h1>
 
-        <h2 className="text-2xl font-bold text-center mb-6 drop-shadow">Formulář pro kontakt:</h2>
-        
-        {!formSubmitted && (
-          <form className="space-y-6" onSubmit={handlePost}>
-            <div>
-              <label htmlFor="name" className="block font-semibold mb-1">Jméno:</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                onChange={handleChange}
-                required
-                className="w-full p-3 rounded-md bg-white/90 text-gray-800 text-base focus:outline-none"
-              />
+          <div className="flex justify-center items-center mt-20">
+            <div className="mb-5 space-y-4 text-white/90 flex flex-col items-center">
+              <div className="flex items-center gap-3 text-black">
+                <Mail className="w-5 h-5 text-black" />
+                <span>
+                  <strong>Email:</strong> sejky@milksejky.com
+                </span>
+              </div>
+              <div className="flex items-center gap-3 text-black">
+                <Phone className="w-5 h-5 text-black" />
+                <span>
+                  <strong>Telefon:</strong> +420 123 456 789
+                </span>
+              </div>
+              <div className="flex items-center gap-3 text-black">
+                <MapPin className="w-5 h-5 text-black" />
+                <span>
+                  <strong>Adresa:</strong> Pařížská 123, Praha, PSČ
+                </span>
+              </div>
             </div>
-            <div>
-              <label htmlFor="email" className="block font-semibold mb-1">Email:</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                onChange={handleChange}
-                required
-                className="w-full p-3 rounded-md bg-white/90 text-gray-800 text-base focus:outline-none"
-              />
-            </div>
-            <div>
-              <label htmlFor="message" className="block font-semibold mb-1">Zpráva:</label>
-              <textarea
-                id="message"
-                name="message"
-                onChange={handleChange}
-                rows="4"
-                required
-                className="w-full p-3 rounded-md bg-white/90 text-gray-800 text-base focus:outline-none"
-              />
-            </div>
-            <button
-              type="submit"
-              className="bg-white text-[#ec5f74] font-bold py-3 px-6 rounded-full cursor-pointer transition-transform duration-200 hover:bg-[#ffe3ea] hover:scale-105"
-            >
-              Odeslat
-            </button>
-          </form>
-        )}
-
-        {formSubmitted && (
-          <div className="mt-6 p-6 text-lg text-center bg-green-600/80 text-white rounded-xl font-semibold shadow-lg">
-            Děkujeme, brzy se vám ozveme!
           </div>
-        )}
+
+          <h2 className="text-3xl font-bold text-center mb-8 mt-20 drop-shadow">
+            Formulář pro kontakt
+          </h2>
+
+          {!formSubmitted ? (
+            <form className="space-y-6" onSubmit={handlePost}>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="name" className="font-medium">
+                  Jméno
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Vaše jméno"
+                  onChange={handleChange}
+                  required
+                  className="w-full px-5 py-3 rounded-xl bg-white/90 text-gray-800 placeholder-gray-500 shadow-lg focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#ec5f74] hover:shadow-md hover:scale-[1.02] transition-all duration-500"
+                />
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <label htmlFor="email" className="font-medium mb-3 mt-5">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Váš email"
+                  onChange={handleChange}
+                  required
+                  className="w-full px-5 py-3 rounded-xl bg-white/90 text-gray-800 placeholder-gray-500 shadow-lg focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#ec5f74] hover:shadow-md hover:scale-[1.02] transition-all duration-500"
+                />
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <label htmlFor="message" className="font-medium mb-3 mt-5">
+                  Zpráva
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="Napište nám zprávu..."
+                  onChange={handleChange}
+                  required
+                  className="w-full px-5 py-3 rounded-xl bg-white/90 text-gray-800 placeholder-gray-500 shadow-2xl focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#ec5f74] hover:shadow-md resize-none hover:scale-[1.02] transition-all duration-500"
+                />
+              </div>
+
+              <div className="text-center pt-5">
+                <button
+                  type="submit"
+                  className="bg-white text-black font-bold py-3 px-10 rounded-full transition-all duration-300 hover:bg-[#ffe3ea] hover:scale-105 shadow-2xl"
+                >
+                  Odeslat
+                </button>
+              </div>
+            </form>
+          ) : (
+            <div className="mt-8 p-6 bg-green-600/90 text-white text-lg rounded-2xl text-center font-semibold shadow-lg">
+              Děkujeme, brzy se vám ozveme!
+            </div>
+          )}
+        </div>
       </main>
-      <Footer />
     </div>
   );
 };
+
+<Footer />;
 
 export default Kontakty;
