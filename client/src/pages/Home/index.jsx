@@ -27,24 +27,65 @@ export default function Home() {
         </Link>
       </main>
 
-      {/* Výhody služby */}
-      <section className="py-16 px-6 text-center bg-white/20 mt-12 rounded-3xl shadow-2xl">
-        <h2 className="text-3xl md:text-4xl font-extrabold mb-10 text-pink-500 drop-shadow-lg">
-          Proč si vytvořit vlastní shake?
-        </h2>
-        <div className="grid md:grid-cols-4 gap-8 cursor-pointer select-none">
-          {[{ title: "Vlastní styl", desc: "Nekonečné možnosti kombinací podle chuti.", icon: <Palette size={36} className="text-white mb-4 mx-auto" />, bg: "bg-gradient-to-tr from-pink-400 to-red-400", hover: "hover:brightness-90" }, { title: "Zábava", desc: "Hravé a jednoduché pro všechny věkové kategorie.", icon: <HeartPulse size={36} className="text-white mb-4 mx-auto" />, bg: "bg-gradient-to-tr from-pink-300 to-sky-300", hover: "hover:brightness-90" }, { title: "Rychlost", desc: "Vytvoř shake během pár kliknutí.", icon: <Zap size={36} className="text-white mb-4 mx-auto" />, bg: "bg-gradient-to-tr from-yellow-300 to-orange-400", hover: "hover:brightness-90" }, { title: "Mobilní", desc: "Plně responsivní i pro telefon a tablet.", icon: <Smartphone size={36} className="text-white mb-4 mx-auto" />, bg: "bg-gradient-to-tr from-purple-200 to-pink-300", hover: "hover:brightness-90" }].map((item, index) => (
-            <div
-              key={index}
-              className={`p-6 rounded-2xl ${item.bg} ${item.hover} backdrop-blur-lg shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 hover:scale-105`}
-            >
-              {item.icon}
-              <p className="text-2xl font-bold mb-3 text-white drop-shadow-md">{item.title}</p>
-              <p className="text-sm text-white font-bold">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+{/* Výhody služby – nový layout s obrázkem a textem střídavě */}
+<section className="py-16 px-6 mt-12 space-y-16 ">
+  <h2 className="text-3xl md:text-4xl font-extrabold text-center text-pink-500 drop-shadow-lg mb-8">
+    Proč si vytvořit vlastní shake?
+  </h2>
+
+  {/* 1. Blok: obrázek vpravo */}
+  <div className="flex flex-col md:flex-row items-center gap-8">
+    <div className="md:w-1/2 text-left">
+      <h3 className="text-3xl font-bold text-white mb-2">Vlastní styl</h3>
+      <p className="text-lg text-white/90">Nekonečné možnosti kombinací podle chuti.</p>
+    </div>
+    <div className="md:w-1/2">
+      <img src="/atributy/shake.png" alt="Vlastní styl" className="rounded-xl w-full max-w-[180px] md:max-w-[220px] h-auto mx-auto"
+
+ />
+    </div>
+  </div>
+
+  {/* 2. Blok: obrázek vlevo */}
+  <div className="flex flex-col md:flex-row-reverse items-center gap-8">
+    <div className="md:w-1/2 text-left">
+      <h3 className="text-3xl font-bold text-white mb-2">Zábava</h3>
+      <p className="text-lg text-white/90">Hravé a jednoduché pro všechny věkové kategorie.</p>
+    </div>
+    <div className="md:w-1/2">
+      <img src="/atributy/hravost.png" alt="Zábava" className="rounded-xl w-full max-w-[180px] md:max-w-[220px] h-auto mx-auto"
+
+ />
+    </div>
+  </div>
+
+  {/* 3. Blok: obrázek vpravo */}
+  <div className="flex flex-col md:flex-row items-center gap-8">
+    <div className="md:w-1/2 text-left">
+      <h3 className="text-3xl font-bold text-white mb-2">Rychlost</h3>
+      <p className="text-lg text-white/90">Vytvoř shake během pár kliknutí.</p>
+    </div>
+    <div className="md:w-1/2">
+      <img src="/atributy/rychlost.png" alt="Rychlost" className="rounded-xl w-full max-w-[180px] md:max-w-[220px] h-auto mx-auto"
+
+ />
+    </div>
+  </div>
+
+  {/* 4. Blok: obrázek vlevo */}
+  <div className="flex flex-col md:flex-row-reverse items-center gap-8">
+    <div className="md:w-1/2 text-left">
+      <h3 className="text-3xl font-bold text-white mb-2">Mobilní</h3>
+      <p className="text-lg text-white/90">Plně responsivní i pro telefon a tablet.</p>
+    </div>
+    <div className="md:w-1/2">
+      <img src="/atributy/mobil.png" alt="Mobilní" className="rounded-xl w-full max-w-[180px] md:max-w-[220px] h-auto mx-auto"
+
+ />
+    </div>
+  </div>
+</section>
+
 
       {/* Ukázky oblíbených kombinací */}
       <section className="py-10 px-6 text-center bg-white/20 mt-10">
