@@ -37,6 +37,7 @@ const Kontakty = () => {
           <p><strong>Telefon:</strong> +420 123 456 789</p>
           <p><strong>Adresa:</strong> Pařížská 123, Praha, PSČ</p>
         </div>
+        
 
         <h2 className="text-2xl font-bold text-center mb-6 drop-shadow">Formulář pro kontakt:</h2>
         

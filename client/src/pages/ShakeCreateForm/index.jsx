@@ -162,7 +162,7 @@ export default function ShakeCreateForm() {
             </div>
 
             <button type="submit" className="w-full bg-white text-pink-600 font-bold py-2 rounded hover:bg-pink-100 transition">
-              Přidat shake
+              Vytvořit shake
             </button>
           </form>
         )}
