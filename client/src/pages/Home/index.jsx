@@ -17,8 +17,9 @@ export default function Home() {
       return;
     }
 
+    // Použijeme typ z vybrané kombinace
     const shakeData = {
-      type: "Milkshake",
+      type: selectedShake.type,
       ingredients: selectedShake.ingredients,
       customerName: customerName.trim(),
     };
@@ -107,41 +108,50 @@ export default function Home() {
 
       {/* Oblíbené kombinace */}
       <section className="py-10 px-6 text-center bg-white/20 mt-10">
-  <h2 className="text-2xl md:text-3xl font-bold mb-6 drop-shadow-lg text-pink-500">
-  Oblíbené kombinace
-</h2>
-<div className="grid md:grid-cols-3 gap-6 cursor-pointer select-none">
-  {[
-    {
-      name: "Čoko Lotus",
-      ingredients: ["Čokoláda", "Lotus", "Zmrzlina"],
-      image: "/kombinace/cokolada.png",
-    },
-    {
-      name: "Berry Fresh",
-      ingredients: ["Jahoda", "Borůvka", "Malina"],
-      image: "/kombinace/lesnismes.png",
-    },
-    {
-      name: "Tropická exploze",
-      ingredients: ["Kiwi", "Med", "Banán"],
-      image: "/kombinace/banan.png",
-    },
-    {
-      name: "Oreo Malina",
-      ingredients: ["Oreo", "Malina", "Zmrzlina"],
-      image: "/kombinace/oreo.png",
-    },
-    {
-      name: "Bílá Jahoda",
-      ingredients: ["Bílá Čokoláda", "Jahoda", "Zmrzlina"],
-      image: "/kombinace/bila_cokolada.png",
-    },
-    {
-      name: "Jablko Meruňka",
-      ingredients: ["Jablko", "Meruňka", "Med"],
-      image: "/kombinace/jablko_merunka.png",
-    },
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 drop-shadow-lg text-pink-500">
+          Oblíbené kombinace
+        </h2>
+        <div className="grid md:grid-cols-3 gap-6 cursor-pointer select-none">
+          {[
+            // Smoothie
+            {
+              type: "Smoothie",
+              name: "Berry Fresh",
+              ingredients: ["Jahoda", "Borůvka", "Malina"],
+              image: "/kombinace/lesnismes.png",
+            },
+            {
+              type: "Smoothie",
+              name: "Tropická exploze",
+              ingredients: ["Kiwi", "Med", "Banán"],
+              image: "/kombinace/banan.png",
+            },
+            {
+              type: "Smoothie",
+              name: "Jablko Meruňka",
+              ingredients: ["Jablko", "Meruňka", "Med"],
+              image: "/kombinace/jablko_merunka.png",
+            },
+
+            // Milkshake
+            {
+              type: "Milkshake",
+              name: "Čoko Lotus",
+              ingredients: ["Čokoláda", "Lotus", "Zmrzlina"],
+              image: "/kombinace/cokolada.png",
+            },
+            {
+              type: "Milkshake",
+              name: "Oreo Malina",
+              ingredients: ["Oreo", "Malina", "Zmrzlina"],
+              image: "/kombinace/oreo.png",
+            },
+            {
+              type: "Milkshake",
+              name: "Bílá Jahoda",
+              ingredients: ["Bílá Čokoláda", "Jahoda", "Zmrzlina"],
+              image: "/kombinace/bila_cokolada.png",
+            },
           ].map((shake, i) => (
             <div
               key={i}
