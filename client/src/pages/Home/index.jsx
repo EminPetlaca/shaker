@@ -144,7 +144,7 @@ export default function Home() {
               type: "Smoothie",
               name: "Jablko Meruňka",
               ingredients: ["Jablko", "Meruňka", "Med"],
-              image: "/kombinace/jablko_merunka.png",
+              image: "/kombinace/med.png",
             },
 
             // Milkshake
@@ -158,13 +158,13 @@ export default function Home() {
               type: "Milkshake",
               name: "Oreo Malina",
               ingredients: ["Oreo", "Malina", "Zmrzlina"],
-              image: "/kombinace/oreo.png",
+              image: "/kombinace/zmrzlina.png",
             },
             {
               type: "Milkshake",
               name: "Bílá Jahoda",
               ingredients: ["Bílá Čokoláda", "Jahoda", "Zmrzlina"],
-              image: "/kombinace/bila_cokolada.png",
+              image: "/kombinace/jahoda.png",
             },
           ].map((shake, i) => (
             <div
