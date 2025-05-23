@@ -28,6 +28,12 @@ const Kontakty = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#ec5f74] to-[#fbc1cc] text-black font-['Poppins',sans-serif]">
       <Header />
+      <main className="flex justify-center items-center py-16 px-4">
+        <div className="relative glow-box w-full max-w-[800px] bg-white backdrop-blur-md rounded-3xl shadow-xl p-12 text-black transition-all duration-300 hover:shadow-2xl hover:scale-[1.01]">
+          <h1 className="text-5xl font-extrabold text-center mb-13 mt-5 drop-shadow-lg tracking-tight">
+            Kontakty
+          </h1>
+
           <div className="flex justify-center items-center mt-20">
             <div className="mb-5 space-y-4 text-white/90 flex flex-col items-center">
               <div className="flex items-center gap-3 text-black">
