@@ -71,8 +71,8 @@ export default function Home() {
   {/* 1. Blok: obrázek vpravo */}
   <div className="flex flex-col md:flex-row items-center gap-8">
     <div className="md:w-1/2 text-left">
-      <h3 className="text-3xl font-bold text-white mb-2">Vlastní styl</h3>
-      <p className="text-lg text-white/90">Nekonečné možnosti kombinací podle chuti.</p>
+      <h3 className="text-4xl font-bold text-white mb-2 !mx-35">Vlastní styl</h3>
+      <p className="text-xl text-white/90 !mx-35 font-semibold">Nekonečné možnosti kombinací podle chuti.</p>
     </div>
     <div className="md:w-1/2">
       <img src="/atributy/shake.png" alt="Vlastní styl" className="rounded-xl w-full max-w-[180px] md:max-w-[220px] h-auto mx-auto"
@@ -84,8 +84,8 @@ export default function Home() {
   {/* 2. Blok: obrázek vlevo */}
   <div className="flex flex-col md:flex-row-reverse items-center gap-8">
     <div className="md:w-1/2 text-left">
-      <h3 className="text-3xl font-bold text-white mb-2">Zábava</h3>
-      <p className="text-lg text-white/90">Hravé a jednoduché pro všechny věkové kategorie.</p>
+      <h3 className="text-4xl font-bold text-white mb-2">Zábava</h3>
+      <p className="text-xl text-white/90 font-semibold">Hravé a jednoduché pro všechny věkové kategorie.</p>
     </div>
     <div className="md:w-1/2">
       <img src="/atributy/hravost.png" alt="Zábava" className="rounded-xl w-full max-w-[180px] md:max-w-[220px] h-auto mx-auto"
@@ -97,8 +97,8 @@ export default function Home() {
   {/* 3. Blok: obrázek vpravo */}
   <div className="flex flex-col md:flex-row items-center gap-8">
     <div className="md:w-1/2 text-left">
-      <h3 className="text-3xl font-bold text-white mb-2">Rychlost</h3>
-      <p className="text-lg text-white/90">Vytvoř shake během pár kliknutí.</p>
+      <h3 className="text-4xl font-bold text-white mb-2 !mx-42">Rychlost</h3>
+      <p className="text-xl text-white/90 !mx-42 font-semibold">Vytvoř shake během pár kliknutí.</p>
     </div>
     <div className="md:w-1/2">
       <img src="/atributy/rychlost.png" alt="Rychlost" className="rounded-xl w-full max-w-[180px] md:max-w-[220px] h-auto mx-auto"
@@ -110,8 +110,8 @@ export default function Home() {
   {/* 4. Blok: obrázek vlevo */}
   <div className="flex flex-col md:flex-row-reverse items-center gap-8">
     <div className="md:w-1/2 text-left">
-      <h3 className="text-3xl font-bold text-white mb-2">Mobilní</h3>
-      <p className="text-lg text-white/90">Plně responsivní i pro telefon a tablet.</p>
+      <h3 className="text-4xl font-bold text-white mb-2">Mobilní</h3>
+      <p className="text-xl text-white/90 font-semibold">Plně responsivní i pro telefon a tablet.</p>
     </div>
     <div className="md:w-1/2">
       <img src="/atributy/mobil.png" alt="Mobilní" className="rounded-xl w-full max-w-[180px] md:max-w-[220px] h-auto mx-auto"
