@@ -49,9 +49,10 @@ export default function Home() {
         <img
           src="/kluk-s-shakem.png"
           alt="Kluk s Milkšejkem"
-          className="max-w-sm w-full mb-6 rounded-lg pointer-events-none select-none hover:scale-105 transition-transform duration-300"
+          draggable="false"
+          className="max-w-sm w-full mb-6 rounded-lg select-none hover:scale-105 transition-transform duration-300"
         />
-        <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 drop-shadow-lg">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 drop-shadow-lg select-none">
           Dej si úžasný milkšejk!
         </h1>
         <Link to="/add-shake" className="relative z-10">
