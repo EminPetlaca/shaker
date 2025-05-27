@@ -82,13 +82,16 @@ export default function ShakeCreateForm() {
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-[#ec5f74] to-[#fbc1cc] flex flex-col items-center justify-center px-4 py-10 text-white font-sans">
       <div className="bg-white/40 backdrop-blur-sm p-8 rounded-lg shadow-lg w-full max-w-md relative select-none">
-        {/* Navigace v horní části */}
-        <div className="absolute top-4 left-4 cursor-pointer" onClick={() => setStep("type")}>
-          <ArrowLeft />
-        </div>
-        <Link to="/" className="absolute top-4 right-4 text-white cursor-pointer">
-          <Home />
-        </Link>
+{/* Navigace v horní části */}
+{step !== "type" && (
+  <div className="absolute top-4 left-4 cursor-pointer" onClick={() => setStep("type")}>
+    <ArrowLeft />
+  </div>
+)}
+<Link to="/" className="absolute top-4 right-4 text-white cursor-pointer">
+  <Home />
+</Link>
+
 
         <h1 className="text-3xl font-extrabold text-center mb-6 text-white drop-shadow">Vytvoř si svůj shake</h1>
 
@@ -117,7 +120,7 @@ export default function ShakeCreateForm() {
             <div className="grid grid-cols-3 gap-4 mb-6">
               {ingredientOptions[formData.type].map((ingredient) => {
                 const isSelected = formData.ingredients.includes(ingredient);
-                const isDisabled = !isSelected && formData.ingredients.length >= 4;
+                const isDisabled = !isSelected && formData.ingredients.length >= 3;
 
                 return (
                   <label
