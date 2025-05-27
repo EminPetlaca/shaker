@@ -177,13 +177,16 @@ export default function Home() {
                 backgroundPosition: "center",
               }}
             >
-              <div className="relative z-10">
-                <h3 className="text-2xl md:text-3xl font-extrabold mb-1">{shake.name}</h3>
-                <p className="text-sm mb-3">{shake.ingredients.join(", ")}</p>
-                <button className="bg-white text-pink-600 px-4 py-2 rounded-full font-semibold text-sm hover:bg-pink-100 transition-all">
-                  Objednat
-                </button>
-              </div>
+<div className="relative z-10">
+  <span className="inline-block bg-white/70 text-pink-700 font-bold text-xs px-3 py-1 rounded-full mb-2">
+    {shake.type}
+  </span>
+  <h3 className="text-2xl md:text-3xl font-extrabold mb-1">{shake.name}</h3>
+  <p className="text-sm mb-3">{shake.ingredients.join(", ")}</p>
+  <button className="bg-white text-pink-600 px-4 py-2 rounded-full font-semibold text-sm hover:bg-pink-100 transition-all">
+    Objednat
+  </button>
+</div>
             </div>
           ))}
         </div>
